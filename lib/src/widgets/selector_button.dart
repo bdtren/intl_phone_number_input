@@ -17,6 +17,7 @@ class SelectorButton extends StatelessWidget {
   final String locale;
   final bool isEnabled;
   final bool isScrollControlled;
+  final Color backgroundColor;
 
   final ValueChanged<Country> onCountryChanged;
 
@@ -32,6 +33,7 @@ class SelectorButton extends StatelessWidget {
     @required this.onCountryChanged,
     @required this.isEnabled,
     @required this.isScrollControlled,
+    @required this.backgroundColor,
   }) : super(key: key);
 
   @override
@@ -46,6 +48,7 @@ class SelectorButton extends StatelessWidget {
                     showFlag: selectorConfig.showFlags,
                     useEmoji: selectorConfig.useEmoji,
                     textStyle: selectorTextStyle,
+                    backgroundColor: backgroundColor,
                   ),
                   value: country,
                   items: mapCountryToDropdownItem(countries),
@@ -57,8 +60,10 @@ class SelectorButton extends StatelessWidget {
                 showFlag: selectorConfig.showFlags,
                 useEmoji: selectorConfig.useEmoji,
                 textStyle: selectorTextStyle,
+                backgroundColor: backgroundColor,
               )
         : MaterialButton(
+            color: backgroundColor,
             key: Key(TestHelper.DropdownButtonKeyValue),
             padding: EdgeInsets.zero,
             minWidth: 0,
@@ -86,6 +91,7 @@ class SelectorButton extends StatelessWidget {
                 showFlag: selectorConfig.showFlags,
                 useEmoji: selectorConfig.useEmoji,
                 textStyle: selectorTextStyle,
+                backgroundColor: backgroundColor,
               ),
             ),
           );
