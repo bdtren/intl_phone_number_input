@@ -51,8 +51,9 @@ class Item extends StatelessWidget {
             ? Container(
                margin: EdgeInsets.only(left: 12.0),
                child: Text(
-                 customCountryCodeText.replaceAll("<dialCode>", this.hasDialCodeInCustomText? country?.dialCode ?? '' : "<dialCode>")
-                     ??'${(country?.dialCode ?? '').padRight(5, "   ")}',
+                  customCountryCodeText != null
+                    ? customCountryCodeText?.replaceAll("<dialCode>", this.hasDialCodeInCustomText? country?.dialCode ?? '' : "<dialCode>")
+                    : '${(country?.dialCode ?? '').padRight(5, "   ")}',
                  textDirection: TextDirection.ltr,
                  style: textStyle,
                ),
